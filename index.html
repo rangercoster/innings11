@@ -7,20 +7,17 @@
 
   <meta name="description" content="Professional home and office cleaning services. Book trusted cleaners near you. Affordable, reliable and fast service.">
 
-  <!-- FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <!-- FAST IMAGE LOAD -->
-  <link rel="preconnect" href="https://images.pexels.com">
 
   <style>
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
       background: #310300;
+      overflow: hidden; /* prevent scroll in ad mode */
     }
 
-    /* HIDE WEBSITE INITIALLY */
+    /* HIDE WEBSITE BY DEFAULT */
     #header, #footer, #container {
       display: none;
     }
@@ -90,31 +87,31 @@
       border-radius: 5px;
     }
 
-    /* FULL SCREEN AD */
+    /* FULL SCREEN AD FIX */
     #adSection {
       position: fixed;
       top: 0;
       left: 0;
+      width: 100vw;
       height: 100vh;
-      width: 100%;
-      background: #000;
       display: flex;
       justify-content: center;
       align-items: center;
+      background: #310300;
       cursor: pointer;
       z-index: 9999;
     }
 
     #adSection img {
-      width: 100%;
+      width: 100vw;
       height: 100vh;
-      object-fit: cover;
+      object-fit: cover; /* MAIN FIX */
       border-radius: 0;
+      pointer-events: none;
     }
 
   </style>
 </head>
-
 <body>
 
 <header id="header">
@@ -167,7 +164,7 @@
 
 <!-- FULL SCREEN CLICKABLE AD -->
 <div id="adSection" onclick="goToWhatsApp()">
-  <img src="https://images.pexels.com/photos/6197117/pexels-photo-6197117.jpeg" alt="Cleaning Offer">
+  <img src="innings.png" alt="Offer">
 </div>
 
 <script>
@@ -179,13 +176,15 @@
       document.getElementById("footer").style.display = "none";
       document.getElementById("container").style.display = "none";
       document.getElementById("adSection").style.display = "flex";
-      document.body.style.background = "#000";
+      document.body.style.background = "#2b0d05";
+      document.body.style.overflow = "hidden";
     } else {
       document.getElementById("header").style.display = "block";
       document.getElementById("footer").style.display = "block";
       document.getElementById("container").style.display = "block";
       document.getElementById("adSection").style.display = "none";
       document.body.style.background = "#f5f7fa";
+      document.body.style.overflow = "auto";
     }
   }
 
